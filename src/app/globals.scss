@@ -1,0 +1,20 @@
+@use "../../node_modules/design-system-mars/src/styles/tokens.scss" as *;
+
+body {
+  height: 100vh;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+a {
+  color: #000;
+  text-decoration: none;
+}
