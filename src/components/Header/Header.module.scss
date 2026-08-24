@@ -1,14 +1,17 @@
+@use "../../styles/mixins" as *;
+
+
 .header {
     &-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 28px;
+        padding: 18px 24px;
         border-bottom: 1px solid var(--color-border);
 
         .title {
             color: var(--color-accent);
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 500;
         }
 
@@ -17,30 +20,11 @@
             height: 30px;
         }
 
-
-
         .btn-theme {
-            padding: 12px 26px;
-            width: 100px;
+            padding: 12px 0;
             margin-left: 12px;
         }
 
-    }
-
-    &-content {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 1000;
-        background-color: rgba(0, 0, 0, 0.5);
-
-        opacity: 0;
-        visibility: hidden;
-
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
 
         .nav {
             &-container {
@@ -68,6 +52,7 @@
                         &.active {
                             border-left: 3px solid var(--color-accent);
                             background-color: #f1d3a566;
+                            font-weight: 600;
                         }
                     }
                 }
@@ -88,6 +73,24 @@
             }
         }
 
+    }
+
+
+    &-content {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+
         &.open {
             opacity: 1;
             visibility: visible;
@@ -98,5 +101,44 @@
         }
     }
 
+}
 
+
+@include responsivenes(desktop) {
+    .header {
+        &-container {
+            width: 16%;
+            height: 100vh;
+            border-bottom: none;
+            border-right: 1px solid var(--color-border);
+            display: block;
+            padding: 22px 26px;
+            position: relative;
+
+            .title {
+                font-size: 24px;
+                margin-left: 11px;
+            }
+
+
+            .nav {
+                &-container {
+                    transform: translateX(0);
+                    width: 100%;
+                    height: auto;
+
+                    ul {
+                        padding: 0;
+                        margin-top: 26px;
+
+                        li {
+                            padding: 8px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }

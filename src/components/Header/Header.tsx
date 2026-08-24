@@ -7,48 +7,67 @@ import { useState } from 'react';
 import { NAV_LINKS } from '@/src/constants/navigation';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import path from 'path';
 
 
 export function Header() {
     const isMobile = useIsMobile();
     const pathName = usePathname();
-
     const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
 
-    console.log({ pathName })
+    const actionMenu = () => {
+        setMenuIsOpen(prev => !prev)
+    }
 
     return (
         <header className={styles["header-container"]}>
             <h1 className={styles.title}>DS MARS ADMIN</h1>
-            <Button variant='secondary' onClick={() => setMenuIsOpen(prev => !prev)}>
-                <MenuIcon className={styles["icon"]} />
-            </Button>
-            <div className={`${styles["header-content"]} ${menuIsOpen && styles.open}`}>
-                <nav className={styles["nav-container"]}>
-                    <div className={styles["nav-head"]}>
-                        <h2>MARS</h2>
-                        <Button variant='secondary' onClick={() => setMenuIsOpen(prev => !prev)}>
-                            <X className={styles["icon"]} />
+            {
+                isMobile ?
+                    <>
+                        <Button variant='secondary' onClick={actionMenu}>
+                            <MenuIcon className={styles["icon"]} />
                         </Button>
-                    </div>
-                    <ul>
-                        {
-                            NAV_LINKS.map(({ label, href }) => {
-                                return (
-                                    <Link href={href} key={href}>
-                                        <li className={`${pathName === href && styles.active}`}>{label}</li>
-                                    </Link>
-                                )
-                            })
-                        }
-                        <ThemeToggle className={styles["btn-theme"]} />
-                        
-                    </ul>
-                    <div className={styles["theme-container"]}>
-                    </div>
-                </nav>
-            </div>
+                        <div className={`${styles["header-content"]} ${menuIsOpen && styles.open}`}>
+                            <nav className={styles["nav-container"]}>
+                                <div className={styles["nav-head"]}>
+                                    <h2>MARS</h2>
+                                    <Button variant='secondary' onClick={actionMenu}>
+                                        <X className={styles["icon"]} />
+                                    </Button>
+                                </div>
+                                <ul>
+                                    {
+                                        NAV_LINKS.map(({ label, href }) => {
+                                            return (
+                                                <Link href={href} key={href}>
+                                                    <li className={`${pathName === href && styles.active}`} onClick={actionMenu}>{label}</li>
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                    <ThemeToggle className={styles["btn-theme"]} />
+
+                                </ul>
+                                <div className={styles["theme-container"]}>
+                                </div>
+                            </nav>
+                        </div>
+                    </> :
+                    <nav className={styles["nav-container"]}>
+                        <ul>
+                            {
+                                NAV_LINKS.map(({ label, href }) => {
+                                    return (
+                                        <Link href={href} key={href}>
+                                            <li className={`${pathName === href && styles.active}`} onClick={actionMenu}>{label}</li>
+                                        </Link>
+                                    )
+                                })
+                            }
+                            <ThemeToggle className={styles["btn-theme"]} />
+                        </ul>
+                    </nav>
+            }
         </header>
     )
 }

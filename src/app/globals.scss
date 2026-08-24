@@ -1,4 +1,5 @@
 @use "../../node_modules/design-system-mars/src/styles/tokens.scss" as *;
+@use "../styles/mixins" as *;
 
 body {
   height: 100vh;
