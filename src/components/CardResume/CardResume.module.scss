@@ -1,0 +1,41 @@
+.card-resume-container {
+    padding: 16px 12px;
+    border: 1px solid #000;
+    border-top: 5px solid #000;
+    margin-bottom: 24px;
+
+
+    h3 {
+        margin-bottom: 10px;
+        font-size: 16px;
+        
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    &.sales {
+        border-color: var(--color-accent);
+
+        h3 {
+            color: var(--color-accent);
+        }
+    }
+
+    &.orders {
+        border-color: var(--color-ink-700);
+
+        h3 {
+            color: var(--color-ink-700);
+        }
+    }
+
+    &.tickets {
+        border-color: #4a8c5f;
+
+        h3 {
+            color: #4a8c5f;
+        }
+    }
+}
