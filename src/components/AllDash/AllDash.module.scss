@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as *;
+
+
+@include responsivenes(desktop) {
+    .card-dash-container {
+        display: flex;
+        gap: 30px;
+
+        div {
+            flex: 1;
+        }
+    }
+}

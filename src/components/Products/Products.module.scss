@@ -1,0 +1,134 @@
+@use "../../styles/mixins" as *;
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search {
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+
+    >div {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+.add-button {
+    padding: 10px !important;
+
+    span {
+        display: flex;
+
+    }
+}
+
+.sku {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.price {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.checkbox-col {
+    width: 40px;
+    text-align: center;
+}
+
+.actions-col {
+    width: 40px;
+    text-align: center;
+}
+
+.delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+        color: var(--color-danger);
+        background-color: var(--color-surface);
+    }
+}
+
+.delete-confirm-text {
+    color: var(--color-text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.delete-confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 280px;
+}
+
+.add-form-row {
+    display: flex;
+    gap: 12px;
+
+    >div {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+@include responsivenes(desktop) {
+    .toolbar {
+        flex-direction: row;
+    }
+
+    .search {
+        flex: 1;
+        max-width: 320px;
+    }
+
+    .filters {
+        flex: 0 1 380px;
+    }
+
+    .add-button {
+        margin-left: auto;
+        height: 36px;
+    }
+}

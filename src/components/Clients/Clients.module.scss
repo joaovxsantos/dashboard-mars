@@ -1,0 +1,38 @@
+@use "../../styles/mixins" as *;
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search {
+    width: 100%;
+}
+
+.orders {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.checkbox-col {
+    width: 40px;
+    text-align: center;
+}
+
+@include responsivenes(desktop) {
+    .search {
+        max-width: 320px;
+    }
+}
