@@ -45,7 +45,7 @@ Os dados de produtos, pedidos e clientes são mockados em `src/constants/` e man
 
 ## Como rodar
 
-Este projeto faz parte de um workspace npm e depende do pacote local `design-system-mars` (`file:../design-system-mars`), que precisa existir um nível acima desta pasta.
+Este projeto depende do [design-system-mars](https://github.com/joaovxsantos/design-system-mars) como dependência via Git (`github:joaovxsantos/design-system-mars#main`), instalado normalmente pelo `npm install` — não é mais necessário ter o repositório clonado localmente ao lado deste.
 
 ```bash
 npm install
